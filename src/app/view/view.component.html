@@ -1,0 +1,30 @@
+<!-- <ul>
+    <li *ngFor="let std of students">
+        First Name:{{std.fName}}</li>
+</ul> -->
+
+<div class="container mt-4">
+  <div>
+    <a [routerLink]="'/add'" class="btn btn-outline-primary std-list mb-2 ">Add New Student</a>
+  </div>
+    <div class="row std-list bg-dark text-white fw-bold p-2">
+      <div class="col-md-2 std-list">S.No</div>
+      <div class="col-md-2 std-list">First Name</div>
+      <div class="col-md-2 std-list">Last Name</div>
+      <div class="col-md-2 std-list">Email</div>
+      <div class="col-md-2 std-list">Edit</div>
+      <div class="col-md-2 std-list">Delete</div>
+    </div>
+  
+    <div class="row std-list border-bottom p-2" *ngFor="let student of students;let i=index;">
+      <div class="col-md-2 std-list">{{i+1}}</div>
+      <div class="col-md-2 std-list">{{ student.fName }}</div>
+      <div class="col-md-2 std-list">{{ student.lName }}</div>
+      <div class="col-md-2 std-list">{{ student.email }}</div>
+      <div class="col-md-2 std-list"><button class="btn btn-success" (click)="edit(student)">Edit</button></div>
+      <div class="col-md-2 std-list">  <button class="btn btn-danger" (click)="delete(student)">Delete</button></div>
+    </div>
+  </div>
+  
+  
+  

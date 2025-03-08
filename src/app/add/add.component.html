@@ -1,0 +1,43 @@
+<div><a [routerLink]="'/view'" class="btn btn-outline-primary add-main mt-2">View Students</a></div>
+<div class=" add-main">
+
+    <h2 class="text-center">Add Students</h2>
+    <form action="" [formGroup]="addForm" novalidate class="form">
+        <!-- <div class="form-group">
+            <label for="sId">Student Id:</label>
+            <input type="number" formControlName="sId" placeholder="Students Id" class="form-control" name="sId">
+        </div> -->
+
+        <div class="form-group">
+            <label for="fName"> First Name:</label>
+            <input type="text" formControlName="fName" placeholder="Students First Name" class="form-control" name="fName">
+        </div>
+
+        <div class="alert alert-danger" *ngIf="addForm.get('fName')?.hasError('required') && addForm.get('fName')?.touched">
+            Please Enter First Name..
+        </div>
+
+        <div class="form-group">
+            <label for="lName"> Last Name:</label>
+            <input type="text" formControlName="lName" placeholder="Students Last Name" class="form-control" name="lName">
+        </div>
+
+        <div class="alert alert-danger" *ngIf="addForm.get('lName')?.hasError('required') && addForm.get('lName')?.touched">
+            Please Enter Last Name..
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="text" formControlName="email" placeholder="Students Email" class="form-control" name="email">
+        </div>
+
+        <div class="alert alert-danger" *ngIf="addForm.get('email')?.hasError('required') && addForm.get('email')?.touched">
+            Please Enter Email..
+        </div>
+        <div class="alert alert-danger" *ngIf="addForm.get('email')?.hasError('pattern') && addForm.get('email')?.touched">
+         Enter valid Email..
+        </div>
+
+        <button type="submit" class="btn btn-outline-primary my-2" (click)="onSubmit()">Save</button>
+    </form>
+</div>
