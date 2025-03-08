@@ -36,5 +36,14 @@ export class AddComponent implements OnInit {
     this._studentService.createStudent(this.addForm.value).subscribe(data => {
       this.router.navigate(['view']);
   });
+  if (this.addForm.invalid) {
+    Object.keys(this.addForm.controls).forEach(key => {
+      const control = this.addForm.get(key);
+      if (control && control.invalid) {
+        control.markAsTouched(); // Marks the control as touched so that validation messages appear
+      }
+    });
+    return;
+  }
   }
 }

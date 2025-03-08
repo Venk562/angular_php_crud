@@ -7,7 +7,7 @@
   <div>
     <a [routerLink]="'/add'" class="btn btn-outline-primary std-list mb-2 ">Add New Student</a>
   </div>
-    <div class="row std-list bg-dark text-white fw-bold p-2">
+    <!-- <div class="row std-list bg-dark text-white fw-bold p-2">
       <div class="col-md-2 std-list">S.No</div>
       <div class="col-md-2 std-list">First Name</div>
       <div class="col-md-2 std-list">Last Name</div>
@@ -23,7 +23,30 @@
       <div class="col-md-2 std-list">{{ student.email }}</div>
       <div class="col-md-2 std-list"><button class="btn btn-success" (click)="edit(student)">Edit</button></div>
       <div class="col-md-2 std-list">  <button class="btn btn-danger" (click)="delete(student)">Delete</button></div>
-    </div>
+    </div> -->
+
+    <table class="table table-bordered">
+      <thead class="bg-dark text-white text-center">
+        <th>S.No</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let student of students;let i=index;" class="text-center">
+          <td>{{i+1}}</td>
+          <td>{{student.fName}}</td>
+          <td>{{student.lName}}</td>
+          <td>{{student.email}}</td>
+          <td><button class="btn btn-success" (click)="edit(student)">Edit</button></td>
+          <td><button class="btn btn-danger" (click)="delete(student)">Delete</button></td>
+        </tr>
+        
+      </tbody>
+    </table>
   </div>
   
   

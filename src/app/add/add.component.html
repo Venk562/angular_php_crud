@@ -2,14 +2,14 @@
 <div class=" add-main">
 
     <h2 class="text-center">Add Students</h2>
-    <form action="" [formGroup]="addForm" novalidate class="form">
+    <form action="" [formGroup]="addForm" novalidate class="form" (ngSubmit)="onSubmit()">
         <!-- <div class="form-group">
             <label for="sId">Student Id:</label>
             <input type="number" formControlName="sId" placeholder="Students Id" class="form-control" name="sId">
         </div> -->
 
         <div class="form-group">
-            <label for="fName"> First Name:</label>
+            <label for="fName"> First Name: <span style="color:red">*</span></label>
             <input type="text" formControlName="fName" placeholder="Students First Name" class="form-control" name="fName">
         </div>
 
@@ -18,7 +18,7 @@
         </div>
 
         <div class="form-group">
-            <label for="lName"> Last Name:</label>
+            <label for="lName"> Last Name:<span style="color:red">*</span></label>
             <input type="text" formControlName="lName" placeholder="Students Last Name" class="form-control" name="lName">
         </div>
 
@@ -27,7 +27,7 @@
         </div>
 
         <div class="form-group">
-            <label for="email">Email:</label>
+            <label for="email">Email:<span style="color:red">*</span></label>
             <input type="text" formControlName="email" placeholder="Students Email" class="form-control" name="email">
         </div>
 
@@ -38,6 +38,6 @@
          Enter valid Email..
         </div>
 
-        <button type="submit" class="btn btn-outline-primary my-2" (click)="onSubmit()">Save</button>
+        <button type="submit" class="btn btn-outline-primary my-2" [disabled]="addForm.invalid">Save</button>
     </form>
 </div>
